@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Aysu — Düzgün İzləmə </title>
+<title>Aysu Piriyeva</title>
 
 <style>
 * {
@@ -15,60 +15,203 @@ body {
     margin: 0;
     min-height: 100vh;
     font-family: Arial, sans-serif;
-    background: linear-gradient(145deg, #071525, #123b60);
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    color: #0b2858;
+    background:
+        radial-gradient(circle at 50% 5%, #2d8cff 0%, transparent 32%),
+        linear-gradient(145deg, #03183b, #0878ff 55%, #031d50);
+    overflow-x: hidden;
 }
 
-.box {
-    width: 90%;
-    max-width: 390px;
-    padding: 28px 22px;
-    border-radius: 24px;
+body::before,
+body::after {
+    content: "";
+    position: fixed;
+    width: 260px;
+    height: 260px;
+    border-radius: 45%;
     background: rgba(255,255,255,0.08);
-    border: 1px solid rgba(255,255,255,0.18);
+    filter: blur(5px);
+    z-index: 0;
+}
+
+body::before {
+    top: -90px;
+    right: -100px;
+    transform: rotate(25deg);
+}
+
+body::after {
+    bottom: -100px;
+    left: -100px;
+    transform: rotate(-25deg);
+}
+
+.wrapper {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 520px;
+    margin: auto;
+    padding: 30px 18px 25px;
+}
+
+.badge {
+    width: 150px;
+    height: 150px;
+    margin: 5px auto -20px;
+    position: relative;
+    z-index: 3;
+    border-radius: 35%;
+    background: linear-gradient(145deg, #38a0ff, #0059ef);
+    box-shadow:
+        0 15px 40px rgba(0,70,220,0.55),
+        inset 0 3px 12px rgba(255,255,255,0.5);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    clip-path: polygon(
+        50% 0%, 62% 9%, 75% 5%, 84% 17%,
+        97% 20%, 94% 34%, 100% 50%,
+        94% 64%, 97% 80%, 84% 83%,
+        75% 95%, 62% 91%, 50% 100%,
+        38% 91%, 25% 95%, 16% 83%,
+        3% 80%, 6% 64%, 0% 50%,
+        6% 34%, 3% 20%, 16% 17%,
+        25% 5%, 38% 9%
+    );
+}
+
+.lock {
+    font-size: 50px;
+    line-height: 1;
+    color: white;
+    text-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.badge-name {
+    margin-top: 7px;
+    color: white;
+    font-size: 17px;
+    font-weight: bold;
+}
+
+.card {
+    position: relative;
+    padding: 65px 22px 30px;
+    border: 1px solid rgba(255,255,255,0.65);
+    border-radius: 30px;
+    background: rgba(235,245,255,0.88);
+    box-shadow:
+        0 25px 60px rgba(0,30,100,0.4),
+        inset 0 1px 0 rgba(255,255,255,0.9);
+    backdrop-filter: blur(18px);
 }
 
 h1 {
+    margin: 0;
     text-align: center;
-    margin-bottom: 8px;
+    font-size: 34px;
+    font-weight: 800;
+    letter-spacing: 1px;
 }
 
 .subtitle {
+    margin: 8px 0 24px;
     text-align: center;
-    color: #bdcada;
-    margin-bottom: 25px;
+    color: #58719a;
+    font-size: 17px;
+}
+
+ {
+    display: inline-block;
+    margin: 0 auto 18px;
+    padding: 5px 12px;
+    border-radius: 20px;
+    background: #e7f1ff;
+    color: #146ee8;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.field {
+    margin-top: 17px;
 }
 
 label {
     display: block;
-    margin: 16px 0 7px;
-    font-size: 14px;
+    margin-bottom: 8px;
+    font-size: 16px;
+    font-weight: bold;
 }
 
 input,
 select {
     width: 100%;
-    padding: 14px;
-    border-radius: 12px;
-    border: 1px solid rgba(255,255,255,0.2);
-    background: rgba(0,0,0,0.25);
-    color: white;
-    font-size: 15px;
+    height: 58px;
+    padding: 0 17px;
+    border: 1.5px solid #a9ceff;
+    border-radius: 17px;
+    outline: none;
+    background: rgba(255,255,255,0.78);
+    color: #18345e;
+    font-size: 16px;
+    box-shadow: inset 0 2px 8px rgba(40,100,180,0.08);
+}
+
+input:focus,
+select:focus {
+    border-color: #1682ff;
+}
+
+select {
+    appearance: auto;
 }
 
 button {
     width: 100%;
+    height: 65px;
     margin-top: 25px;
-    padding: 15px;
     border: none;
-    border-radius: 12px;
-    background: #168cff;
+    border-radius: 35px;
+    background: linear-gradient(135deg, #168cff, #0757e9);
     color: white;
-    font-size: 17px;
-    font-weight: bold;
+    font-size: 21px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    box-shadow:
+        0 10px 25px rgba(0,100,255,0.4),
+        inset 0 2px 5px rgba(255,255,255,0.35);
+}
+
+button:active {
+    transform: scale(0.98);
+}
+
+.footer {
+    display: flex;
+    justify-content: space-around;
+    gap: 8px;
+    margin-top: 25px;
+    color: white;
+    font-size: 13px;
+    text-align: center;
+}
+
+.footer div {
+    flex: 1;
+    padding: 8px 3px;
+    border-right: 1px solid rgba(255,255,255,0.35);
+}
+
+.footer div:last-child {
+    border-right: none;
+}
+
+.footer-icon {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 20px;
 }
 
 #second {
@@ -77,13 +220,20 @@ button {
 }
 
 .loader {
-    width: 55px;
-    height: 55px;
-    margin: 25px auto;
-    border: 5px solid rgba(255,255,255,0.2);
-    border-top-color: white;
+    width: 58px;
+    height: 58px;
+    margin: 30px auto;
+    border: 5px solid #d8e9ff;
+    border-top-color: #087cff;
     border-radius: 50%;
     animation: spin 1s linear infinite;
+}
+
+.back {
+    margin-top: 20px;
+    background: #0b6df2;
+    height: 52px;
+    font-size: 16px;
 }
 
 @keyframes spin {
@@ -91,73 +241,135 @@ button {
         transform: rotate(360deg);
     }
 }
+
+@media (max-width: 380px) {
+    h1 {
+        font-size: 29px;
+    }
+
+    .badge {
+        width: 130px;
+        height: 130px;
+    }
+
+    .lock {
+        font-size: 43px;
+    }
+
+    .badge-name {
+        font-size: 15px;
+    }
+}
 </style>
 </head>
 
 <body>
 
-<div class="box">
+<div class="wrapper">
 
-    <div id="first">
+    <div class="badge">
+        <div class="lock">🔒</div>
+        <div class="badge-name">aysu.piriyeva2</div>
+    </div>
 
-        <h1>AYSU</h1>
+    <div class="card">
 
-        <div class="subtitle">
-            Düzgün izləmə — 
+        <div id="first">
+
+            <h1>AYSU PİRİYEVA</h1>
+
+            <div class="subtitle">
+                Düzgün izləmə — Etibarlı həll
+            </div>
+
+            <div style="text-align:center;">
+                <span class="demo"> Proper Monitoring — Reliable Solution
+                </span>
+            </div>
+
+            <div class="field">
+                <label>Sizin nömrəniz</label>
+                <input type="tel" placeholder="+994 XX XXX XX XX">
+            </div>
+
+            <div class="field">
+                <label>Qarşı tərəfin nömrəsi</label>
+                <input type="tel" placeholder="+994 XX XXX XX XX">
+            </div>
+
+            <div class="field">
+                <label>Müddət</label>
+                <select>
+                    <option>6 ay</option>
+                    <option>12 ay</option>
+                    <option>48 ay</option>
+                </select>
+            </div>
+
+            <button type="button" onclick="startDemo()">
+                → &nbsp; START
+            </button>
+
         </div>
 
-        <label>Sizin nömrəniz</label>
-        <input type="tel" placeholder="+994 XX XXX XX XX">
+        <div id="second">
 
-        <label>Qarşı tərəfin nömrəsi</label>
-        <input type="tel" placeholder="+994 XX XXX XX XX">
+            <h1>AYSU PİRİYEVA</h1>
 
-        <label>Müddət</label>
-        <select>
-            <option>6 ay</option>
-            <option>12 ay</option>
-            <option>48 ay</option>
-        </select>
+            <div class="loader"></div>
 
-        <button type="button" onclick="start()">
-            START
-        </button>
+            <p id="message">
+                 Proses başladılır...
+            </p>
+
+            <button class="back" onclick="goBack()">
+                Geri qayıt
+            </button>
+
+        </div>
 
     </div>
 
-
-    <div id="second">
-
-        <h1>AYSU</h1>
-
-        <div class="loader"></div>
-
-        <p id="message">
-            Sorğu başladılır...
-        </p>
-
+    <div class="footer">
+        <div>
+            <span class="footer-icon">🛡️</span>
+            Təhlükəsiz
+        </div>
+        <div>
+            <span class="footer-icon">🔒</span>
+            Məxfi
+        </div>
+        <div>
+            <span class="footer-icon">◷</span>
+            Etibarlı
+        </div>
     </div>
 
 </div>
 
-
 <script>
 
-function start() {
+function startDemo() {
 
     document.getElementById("first").style.display = "none";
-
     document.getElementById("second").style.display = "block";
 
     setTimeout(function() {
         document.getElementById("message").innerHTML =
-        "Məlumatlar yoxlanılır...";
+        "Məlumatları yoxlanılır...";
     }, 1500);
 
     setTimeout(function() {
         document.getElementById("message").innerHTML =
-        "Proses 1 saat sora bitəcək Aysu xanımməlumat verəcək.";
+        "Hörmətli müştəri, proses təxminən 1 saat davam edəcək. 
+            Proses bitdikdən sonra Aysu xanım sizə yenidən link göndərəcək..";
     }, 3500);
+}
+
+function goBack() {
+
+    document.getElementById("second").style.display = "none";
+    document.getElementById("first").style.display = "block";
 
 }
 
