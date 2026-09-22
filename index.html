@@ -373,7 +373,10 @@ function goBack() {
 
 }
 
-</script>
+document.querySelector("#first button").onclick = function() {
+    document.getElementById("first").style.display = "none";
+    document.getElementById("second").style.display = "block";
+};</script>
 
 </body>
 </html>
