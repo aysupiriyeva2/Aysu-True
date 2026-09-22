@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Aysu Piriyeva</title>
+<title>Aysu Piriyeva — Demo</title>
 
 <style>
 * {
@@ -86,7 +86,6 @@ body::after {
     font-size: 50px;
     line-height: 1;
     color: white;
-    text-shadow: 0 4px 8px rgba(0,0,0,0.2);
 }
 
 .badge-name {
@@ -123,7 +122,7 @@ h1 {
     font-size: 17px;
 }
 
- {
+.demo {
     display: inline-block;
     margin: 0 auto 18px;
     padding: 5px 12px;
@@ -156,16 +155,6 @@ select {
     background: rgba(255,255,255,0.78);
     color: #18345e;
     font-size: 16px;
-    box-shadow: inset 0 2px 8px rgba(40,100,180,0.08);
-}
-
-input:focus,
-select:focus {
-    border-color: #1682ff;
-}
-
-select {
-    appearance: auto;
 }
 
 button {
@@ -182,6 +171,7 @@ button {
     box-shadow:
         0 10px 25px rgba(0,100,255,0.4),
         inset 0 2px 5px rgba(255,255,255,0.35);
+    cursor: pointer;
 }
 
 button:active {
@@ -274,6 +264,7 @@ button:active {
 
     <div class="card">
 
+        <!-- BİRİNCİ EKRAN -->
         <div id="first">
 
             <h1>AYSU PİRİYEVA</h1>
@@ -283,8 +274,7 @@ button:active {
             </div>
 
             <div style="text-align:center;">
-                <span class="demo"> Proper Monitoring — Reliable Solution
-                </span>
+                <span class="demo"> </span>
             </div>
 
             <div class="field">
@@ -301,17 +291,18 @@ button:active {
                 <label>Müddət</label>
                 <select>
                     <option>6 ay</option>
-                    <option>12 ay</option>
-                    <option>48 ay</option>
+                    <option>10 ay</option>
                 </select>
             </div>
 
-            <button type="button" onclick="startDemo()">
+            <button type="button" id="startButton">
                 → &nbsp; START
             </button>
 
         </div>
 
+
+        <!-- İKİNCİ EKRAN -->
         <div id="second">
 
             <h1>AYSU PİRİYEVA</h1>
@@ -319,10 +310,10 @@ button:active {
             <div class="loader"></div>
 
             <p id="message">
-                 Proses başladılır...
+                Proses başladılır...
             </p>
 
-            <button class="back" onclick="goBack()">
+            <button type="button" class="back" id="backButton">
                 Geri qayıt
             </button>
 
@@ -330,53 +321,65 @@ button:active {
 
     </div>
 
+
     <div class="footer">
+
         <div>
             <span class="footer-icon">🛡️</span>
             Təhlükəsiz
         </div>
+
         <div>
             <span class="footer-icon">🔒</span>
             Məxfi
         </div>
+
         <div>
             <span class="footer-icon">◷</span>
             Etibarlı
         </div>
+
     </div>
 
 </div>
 
+
 <script>
 
-function startDemo() {
+const firstScreen = document.getElementById("first");
+const secondScreen = document.getElementById("second");
+const startButton = document.getElementById("startButton");
+const backButton = document.getElementById("backButton");
+const message = document.getElementById("message");
 
-    document.getElementById("first").style.display = "none";
-    document.getElementById("second").style.display = "block";
 
-    setTimeout(function() {
-        document.getElementById("message").innerHTML =
-        "Məlumatları yoxlanılır...";
+startButton.addEventListener("click", function () {
+
+    firstScreen.style.display = "none";
+    secondScreen.style.display = "block";
+
+    message.textContent = "Proses başladılır...";
+
+    setTimeout(function () {
+        message.textContent = "Məlumatları yoxlanılır...";
     }, 1500);
 
-    setTimeout(function() {
-        document.getElementById("message").innerHTML =
-        "Hörmətli müştəri, proses təxminən 1 saat davam edəcək. 
-            Proses bitdikdən sonra Aysu xanım sizə yenidən link göndərəcək..";
+    setTimeout(function () {
+        message.textContent = "Hörmətli müştəri, proses təxminən 1 saat davam edəcək. Proses bitdikdən sonra 
+            Aysu xanım sizə yenidən link göndərəcək..";
     }, 3500);
-}
 
-function goBack() {
+});
 
-    document.getElementById("second").style.display = "none";
-    document.getElementById("first").style.display = "block";
 
-}
+backButton.addEventListener("click", function () {
 
-document.querySelector("#first button").onclick = function() {
-    document.getElementById("first").style.display = "none";
-    document.getElementById("second").style.display = "block";
-};</script>
+    secondScreen.style.display = "none";
+    firstScreen.style.display = "block";
+
+});
+
+</script>
 
 </body>
 </html>
